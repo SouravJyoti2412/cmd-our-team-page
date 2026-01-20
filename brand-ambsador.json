@@ -1,0 +1,223 @@
+
+                               {
+                    id: 12,
+                    name: "Paul",
+                    title: "Master Educator",
+                    bio: "Nationally recognized Minelab DetExpert educating thousands worldwide.",
+                    quote: "I just like digging stuff up!",
+                    gender: "male",
+                    category: "specialists",
+                    social: [
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" },
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        {platform:"website", url:"https://www.gisellekiraly.com/"}
+                    ]
+                },
+                {
+                    id: 1,
+                    name: "Giselle",
+                    title: "Archaeologist",
+                    bio: "Professional archaeologist bringing scholarly depth to detecting with historical insights.",
+                    quote: "Discovering history, one artifact at a time",
+                    gender: "female",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://www.instagram.com/awanderingarchaeologist/", icon: "📷" },
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Kurt",
+                    title: "Content Creator",
+                    bio: "Infectious enthusiasm transforming detecting into life-changing adventures.",
+                    quote: "Detecting gave me purpose, healing, and connection",
+                    gender: "male",
+                    category: "creators",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Timmy",
+                    title: "Community Builder",
+                    bio: "Champions positive behavior and friendships within the detecting community.",
+                    quote: "Detecting gives freedom, adventure, and community",
+                    gender: "male",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "facebook", url: "https://facebook.com", icon: "f" }
+                    ]
+                },
+                {
+                    id: 4,
+                    name: "Julie",
+                    title: "Educational Storyteller",
+                    bio: "Warmth and beautiful presentation create educational detecting journeys.",
+                    quote: "Sharing history with warmth and community",
+                    gender: "female",
+                    category: "creators",
+                    social: [
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" },
+                        { platform: "facebook", url: "https://facebook.com", icon: "f" }
+                    ]
+                },
+                {
+                    id: 5,
+                    name: "Freddy",
+                    title: "Young Enthusiast",
+                    bio: "Tough detectorist who masters machines and finds gold, proving dedication.",
+                    quote: "Dedication to detecting, any weather, any terrain",
+                    gender: "male",
+                    category: "creators",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "tiktok", url: "https://tiktok.com", icon: "♪" }
+                    ]
+                },
+                {
+                    id: 6,
+                    name: "Sophie",
+                    title: "Photographer & Creator",
+                    bio: "Stunning photography captures peace and beauty of detecting.",
+                    quote: "Metal detecting is soul food - a way of life",
+                    gender: "female",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" }
+                    ]
+                },
+                {
+                    id: 7,
+                    name: "Joe Allen",
+                    title: "Thames Mudlarker",
+                    bio: "Renowned mudlark uncovering Thames treasures and reuniting lost items.",
+                    quote: "Helping reunite lost items to grateful people",
+                    gender: "male",
+                    category: "creators",
+                    social: [
+                        { platform: "tiktok", url: "https://tiktok.com", icon: "♪" },
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" }
+                    ]
+                },
+                {
+                    id: 8,
+                    name: "Miss Sam",
+                    title: "Visual Storyteller",
+                    bio: "North Wales photographer capturing stunning detecting imagery with sass and style.",
+                    quote: "Capturing the beauty of detection through photography",
+                    gender: "female",
+                    category: "creators",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "facebook", url: "https://facebook.com", icon: "f" }
+                    ]
+                },
+                {
+                    id: 9,
+                    name: "Lucy Spraggan",
+                    title: "Musician & Advocate",
+                    bio: "Kick-ass musician championing detecting to those who'd benefit most.",
+                    quote: "Championing metal detecting to those who need it",
+                    gender: "female",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" }
+                    ]
+                },
+                {
+                    id: 10,
+                    name: "Malc",
+                    title: "Equipment Expert",
+                    bio: "Manticore and Equinox 900 champion helping others find treasure.",
+                    quote: "Helping others find more stuff and build confidence",
+                    gender: "male",
+                    category: "specialists",
+                    social: [
+                        { platform: "facebook", url: "https://facebook.com", icon: "f" }
+                    ]
+                },
+                {
+                    id: 11,
+                    name: "Artur",
+                    title: "International Creator",
+                    bio: "1st Polish Minelab DetExpert reaching communities across Europe.",
+                    quote: "Hobby has always been about community",
+                    gender: "male",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "tiktok", url: "https://tiktok.com", icon: "♪" }
+                    ]
+                },
+ 
+                {
+                    id: 13,
+                    name: "Olly",
+                    title: "Conversational Creator",
+                    bio: "Natural style creates relaxing, positive vibes in outdoor pursuit content.",
+                    quote: "Sharing relaxing positive vibes through adventures",
+                    gender: "male",
+                    category: "creators",
+                    social: [
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" },
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" }
+                    ]
+                },
+                {
+                    id: 14,
+                    name: "David",
+                    title: "TikTok Specialist",
+                    bio: "TikTok master bringing new detectorists into hobby through live streams.",
+                    quote: "Promoting the hobby and helping newcomers",
+                    gender: "male",
+                    category: "creators",
+                    social: [
+                        { platform: "tiktok", url: "https://tiktok.com", icon: "♪" },
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" }
+                    ]
+                },
+                {
+                    id: 15,
+                    name: "Karl",
+                    title: "Mental Health Advocate",
+                    bio: "Positive influence promoting detecting as mental health aid.",
+                    quote: "Treasure is never guaranteed. Friends almost always are",
+                    gender: "male",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" },
+                        { platform: "youtube", url: "https://youtube.com", icon: "▶️" }
+                    ]
+                },
+                {
+                    id: 16,
+                    name: "Sam",
+                    title: "Outdoor Specialist",
+                    bio: "Tree surgeon with wicked humor sharing observational content about detecting.",
+                    quote: "When I detect nothing else matters",
+                    gender: "male",
+                    category: "creators",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" }
+                    ]
+                },
+                {
+                    id: 17,
+                    name: "Darryl",
+                    title: "History & Business Expert",
+                    bio: "Business owner searching for artifacts and supporting newcomers.",
+                    quote: "Supporting newcomers and sharing discoveries",
+                    gender: "male",
+                    category: "ambassadors",
+                    social: [
+                        { platform: "instagram", url: "https://instagram.com", icon: "📷" }
+                    ]
+                }
+            
+     
