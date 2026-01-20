@@ -4,20 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Our Team | Crawfords Metal Detectors – 30 Years of Detecting Expertise</title>
+    <title>Crawfords Metal Detectors | Premium Elite Design</title>
+    <meta name="description"
+        content="Discover the Crawfords team and exclusive influencers. Premium metal detecting expertise.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./assets/css/styles.css"/>
-    
-
-<meta name="description" content="Meet the expert team behind Crawfords Metal Detectors. With over 30 years of experience, our passionate detectorists support the UK detecting community and Minelab users nationwide.">
-
-<meta name="keywords" content="metal detecting experts, Crawfords Metal Detectors team, Minelab specialists UK, metal detecting advice UK, detecting community, CMD team">
-
-<meta name="robots" content="index, follow">
-<meta name="author" content="Crawfords Metal Detectors">
-
 </head>
 
 <body>
@@ -79,7 +72,7 @@
         <div class="section-container">
             <h2 class="section-title">Our Brand Ambassadors</h2>
             <p class="section-subtitle">
-                17 passionate creators celebrating the metal detecting lifestyle
+                Passionate ambassadors representing Crawfords Metal Detectors
             </p>
             <div class="grid" id="ambassadorsGrid"></div>
         </div>
@@ -89,7 +82,7 @@
 
 
     <!-- Stats Section -->
-    <!-- <section class="stats-section">
+    <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-box">
                 <div class="stat-number">35+</div>
@@ -108,7 +101,7 @@
                 <div class="stat-label">Ambassadors & Creators</div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Contact Section -->
     <section class="contact-section">
@@ -507,41 +500,55 @@
             ]
         };
 
-/* =====================================================
-   UTILITIES
-===================================================== */
+// ==========================
+// Utility Functions
+// ==========================
 
+// Get initials for profile icon
 function getInitials(name) {
-    return name.split(' ')
+    return name
+        .split(' ')
         .map(w => w[0])
         .join('')
         .substring(0, 2)
         .toUpperCase();
 }
 
+// Get gender icon
 function getGenderIcon(gender) {
     return gender === 'female' ? '♀' : '♂';
 }
 
+// Generate image filename from name
 function getImageFilename(name) {
-    return name
+    let cleanName = name
         .toUpperCase()
         .replace(/[^A-Z0-9\s]/g, '')
         .replace(/\s+/g, ' ')
-        .trim() + '.png';
+        .trim();
+
+    const special = {
+        "CRAIG ALLISON": "CRAIG ALLISON.png",
+        "ALYSON RYLATT": "ALYSON RYLATT.png",
+        "SHARNA RYLATT": "SHARNA RYLATT.png",
+        "JOE BIRKS": "JOE BIRKS.png",
+        "MICHAEL GRIMES": "MICHAEL GRIMES.png",
+        "CHRIS HEATH": "CHRIS HEATH.png",
+        "SCOTT BALLARD": "SCOTT BALLARD.png"
+    };
+
+    return special[cleanName] || `${cleanName}.png`;
 }
 
-/* =====================================================
-   IMAGE LOADER
-===================================================== */
+// ==========================
+// Image Loader (SAFE)
+// ==========================
 
 function loadImage(imagePath, container, name, gender) {
     const img = new Image();
 
     img.onload = () => {
-        container.innerHTML = `
-            <img src="${imagePath}" alt="${name}" class="profile-image">
-        `;
+        container.innerHTML = `<img src="${imagePath}" alt="${name}" class="profile-image">`;
     };
 
     img.onerror = () => {
@@ -557,11 +564,11 @@ function loadImage(imagePath, container, name, gender) {
     img.src = imagePath;
 }
 
-/* =====================================================
-   CMD TEAM (WITH EMAIL + PHONE)
-===================================================== */
+// ==========================
+// Render Team Members
+// ==========================
 
-function renderTeamMembers(containerId, members) {
+async function renderTeamMembers(containerId, members) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
 
@@ -570,7 +577,6 @@ function renderTeamMembers(containerId, members) {
 
         const card = document.createElement('div');
         card.className = 'card';
-
         card.innerHTML = `
             <div class="image-container">
                 <div class="image-fallback">
@@ -582,39 +588,30 @@ function renderTeamMembers(containerId, members) {
                     ${getGenderIcon(member.gender)}
                 </div>
             </div>
-
             <div class="card-info">
                 <div class="card-name">${member.name}</div>
                 <div class="card-title">${member.role}</div>
-
-                <div class="contact-links">
-                    <a href="mailto:${member.email}" class="contact-btn" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="tel:${member.phone}" class="contact-btn" title="Call">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                </div>
             </div>
         `;
 
         container.appendChild(card);
 
-        const imgBox = card.querySelector('.image-container');
+        const imageContainer = card.querySelector('.image-container');
 
+        // 🔥 CRITICAL FIX: wait until section is visible
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                loadImage(imagePath, imgBox, member.name, member.gender);
+                loadImage(imagePath, imageContainer, member.name, member.gender);
             });
         });
     });
 }
 
-/* =====================================================
-   INFLUENCERS (WITH SOCIAL LINKS + QUOTE)
-===================================================== */
+// ==========================
+// Render Influencers
+// ==========================
 
-function renderInfluencers(containerId, influencers) {
+async function renderInfluencers(containerId, influencers) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
 
@@ -623,7 +620,6 @@ function renderInfluencers(containerId, influencers) {
 
         const card = document.createElement('div');
         card.className = 'card';
-
         card.innerHTML = `
             <div class="image-container">
                 <div class="image-fallback">
@@ -635,55 +631,39 @@ function renderInfluencers(containerId, influencers) {
                     ${getGenderIcon(influencer.gender)}
                 </div>
             </div>
-
             <div class="card-info">
                 <div class="card-name">${influencer.name}</div>
                 <div class="card-title">${influencer.title}</div>
-
                 <div class="card-bio">${influencer.bio}</div>
-
-                ${influencer.quote ? `
-                    <div class="passion-quote">
-                        "${influencer.quote}"
-                    </div>
-                ` : ''}
-
-                <div class="social-links">
-                    ${influencer.social.map(social => `
-                        <a href="${social.url}" target="_blank"
-                           class="social-btn" title="${social.platform}">
-                            ${social.icon}
-                        </a>
-                    `).join('')}
-                </div>
             </div>
         `;
 
         container.appendChild(card);
 
-        const imgBox = card.querySelector('.image-container');
+        const imageContainer = card.querySelector('.image-container');
 
+        // 🔥 CRITICAL FIX
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                loadImage(imagePath, imgBox, influencer.name, influencer.gender);
+                loadImage(imagePath, imageContainer, influencer.name, influencer.gender);
             });
         });
     });
 }
 
-/* =====================================================
-   SECTION SWITCHING (ALL / TEAM / AMBASSADORS)
-===================================================== */
-
+// ==========================
+// Section Switching (Tabs)
+// ==========================
 function showSection(section) {
-    document.querySelectorAll('.content-section')
-        .forEach(sec => sec.classList.remove('active'));
+    document.querySelectorAll('.content-section').forEach(s =>
+        s.classList.remove('active')
+    );
 
-    document.querySelectorAll('.nav-tab')
-        .forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t =>
+        t.classList.remove('active')
+    );
 
-    document.getElementById(section + 'Section')
-        .classList.add('active');
+    document.getElementById(section + 'Section').classList.add('active');
 
     document.querySelector(`[onclick="showSection('${section}')"]`)
         .classList.add('active');
@@ -709,10 +689,6 @@ function showSection(section) {
     }
 }
 
-/* =====================================================
-   INITIAL LOAD
-===================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
     renderTeamMembers('teamGridAll', data.team);
 
@@ -720,6 +696,15 @@ document.addEventListener('DOMContentLoaded', () => {
         i => i.category === 'ambassadors' || i.category === 'specialists'
     );
     renderInfluencers('ambassadorsGridAll', ambassadors);
+});
+
+// ==========================
+// Initial Load
+// ==========================
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await renderTeamMembers('teamGridAll', data.team);
+    await renderInfluencers('influencerGridAll', data.influencers);
 });
         function scrollToMain() {
             document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
