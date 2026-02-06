@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Metal Detecting Rallies & Events 2026 | Crawfords Metal Detectors</title>
+    <style>
+        :root {
+            --crawfords-blue: #2c5aa0;
+            --crawfords-red: #c7302a;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-color: #e8e8e8;
+            --success-green: #28a745;
+            --warning-orange: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--crawfords-blue) 0%, #1e3a6d 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, var(--bg-white), var(--bg-light));
+            padding: 3rem 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--crawfords-blue);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--crawfords-blue);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--crawfords-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--crawfords-blue);
+            background: white;
+            color: var(--crawfords-blue);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--crawfords-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(44, 90, 160, 0.3);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--crawfords-blue);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .event-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--crawfords-blue) 0%, #1e3a6d 100%);
+            color: white;
+        }
+
+        .event-season {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-body {
+            padding: 1.5rem;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .event-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .event-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-light);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn {
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            flex: 1;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--crawfords-blue);
+            color: white;
+            border: 2px solid var(--crawfords-blue);
+        }
+
+        .btn-primary:hover {
+            background: #1e3a6d;
+            border-color: #1e3a6d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--crawfords-blue);
+            border: 2px solid var(--crawfords-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-light);
+        }
+
+        .info-section {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .info-title {
+            font-size: 1.8rem;
+            color: var(--crawfords-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--crawfords-blue);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            color: var(--crawfords-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .info-card li:before {
+            content: "✓";
+            color: var(--success-green);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .tips-section {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--warning-orange);
+            margin-bottom: 3rem;
+        }
+
+        .tips-title {
+            font-size: 1.5rem;
+            color: var(--crawfords-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .tip-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .about-crawfords {
+            background: linear-gradient(135deg, var(--crawfords-blue) 0%, #1e3a6d 100%);
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+        }
+
+        .no-events {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+
+            .event-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">CRAWFORDS</div>
+            <div class="tagline">Metal Detectors</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>🪙 UK Metal Detecting Rallies & Events 2026</h1>
+        <p class="hero-subtitle">Your fun, friendly field guide from Crawfords Metal Detectors</p>
+        <div class="intro-text">
+            <p>There's nothing quite like a rally morning... Dew on the grass 🌾, flasks steaming ☕, detectors humming 🎧 — and that feeling that <em>today could be the day</em>.</p>
+            <p style="margin-top: 1rem;">Metal detecting has never been about one brand, one machine, or one way of doing things. It's about people 👋. Fields 🌾. Stories 📖. And that moment when a signal makes your heart skip a beat 💓.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterEvents('all')">All Events</button>
+            <button class="filter-btn" onclick="filterEvents('winter')">❄️ Winter (Jan-Feb)</button>
+            <button class="filter-btn" onclick="filterEvents('spring')">🌱 Spring (Mar-Apr)</button>
+            <button class="filter-btn" onclick="filterEvents('summer')">☀️ Summer (May-Aug)</button>
+            <button class="filter-btn" onclick="filterEvents('autumn')">🍂 Autumn (Sep-Oct)</button>
+        </div>
+
+        <!-- Events Grid -->
+        <div class="events-grid" id="eventsGrid">
+            <!-- Winter Events -->
+            <div class="event-card" data-season="winter">
+                <div class="event-header">
+                    <div class="event-season">❄️ Winter Warm-Ups</div>
+                    <h3 class="event-title">Wiltshire Club Dig</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>January 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Wiltshire, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>Small friendly groups</span>
+                        </div>
+                    </div>
+                    <p class="event-description">Friendly, low-pressure events where advice flows freely and nobody minds if you ask "what's that signal?" Perfect for easing into the year — quieter fields, plenty of chat, and loads of shared tips.</p>
+                    <div class="event-tags">
+                        <span class="tag">Beginners Welcome</span>
+                        <span class="tag">Relaxed Pace</span>
+                        <span class="tag">Learning Friendly</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Wiltshire+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card" data-season="winter">
+                <div class="event-header">
+                    <div class="event-season">❄️ Winter Warm-Ups</div>
+                    <h3 class="event-title">Norfolk Weekender</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>February 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Norfolk, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>Weekend rally</span>
+                        </div>
+                    </div>
+                    <p class="event-description">Small club digs and friendly weekenders perfect for beginners and first rallies. A great opportunity to meet local detectorists and learn the ropes in a supportive environment.</p>
+                    <div class="event-tags">
+                        <span class="tag">First Timers</span>
+                        <span class="tag">Weekend Event</span>
+                        <span class="tag">Community Focus</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Norfolk+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spring Events -->
+            <div class="event-card" data-season="spring">
+                <div class="event-header">
+                    <div class="event-season">🌱 Spring Rallies</div>
+                    <h3 class="event-title">England & Wales Spring Tour</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>March - April 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Multiple locations across England & Wales</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>Mixed-experience detectorists</span>
+                        </div>
+                    </div>
+                    <p class="event-description">Spring rallies are all about confidence-building — soils improve and signals start popping. Perfect for learning your machine and testing settings. Spring is where confidence grows and machines start to sing! 🎶</p>
+                    <div class="event-tags">
+                        <span class="tag">Skill Development</span>
+                        <span class="tag">Machine Testing</span>
+                        <span class="tag">All Levels</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/England+Wales+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summer Events -->
+            <div class="event-card" data-season="summer">
+                <div class="event-header">
+                    <div class="event-season">☀️ Bank Holiday Weekender</div>
+                    <h3 class="event-title">Somerset Rally</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>May 2026 (Bank Holiday)</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Somerset, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🏕️</span>
+                            <span>2-3 day camping event</span>
+                        </div>
+                    </div>
+                    <p class="event-description">Classic UK rally — arrive Friday, leave Sunday with muddy boots and new mates. Features camping, food stalls, and social evenings. Best for experiencing community and proper rally atmosphere.</p>
+                    <div class="event-tags">
+                        <span class="tag">Camping Available</span>
+                        <span class="tag">Food Stalls</span>
+                        <span class="tag">Social Events</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Somerset+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card" data-season="summer">
+                <div class="event-header">
+                    <div class="event-season">☀️ Bank Holiday Weekender</div>
+                    <h3 class="event-title">Cumbria Big Dig</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>May 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Cumbria, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🏕️</span>
+                            <span>Full weekend event</span>
+                        </div>
+                    </div>
+                    <p class="event-description">Community-focused longer dig with camping options and social evenings. Experience the proper rally atmosphere with fellow enthusiasts from across the UK.</p>
+                    <div class="event-tags">
+                        <span class="tag">Weekend Rally</span>
+                        <span class="tag">Community</span>
+                        <span class="tag">All Welcome</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Cumbria+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card" data-season="summer">
+                <div class="event-header">
+                    <div class="event-season">☀️ Bank Holiday Weekender</div>
+                    <h3 class="event-title">North Wales Detect</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>May 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>North Wales</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>Multi-day event</span>
+                        </div>
+                    </div>
+                    <p class="event-description">Beautiful Welsh countryside setting with 2-3 full detecting days. Perfect for those seeking longer digs and proper rally atmosphere in stunning locations.</p>
+                    <div class="event-tags">
+                        <span class="tag">Scenic Location</span>
+                        <span class="tag">Multi-day</span>
+                        <span class="tag">Camping</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/North+Wales+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card" data-season="summer" style="border-top-color: var(--crawfords-red);">
+                <div class="event-header" style="background: linear-gradient(135deg, var(--crawfords-red) 0%, #9a1f1f 100%);">
+                    <div class="event-season">🎉 THE BIG ONE</div>
+                    <h3 class="event-title">Minelab 500 Rally</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>August 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Somerset, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>Hundreds of detectorists</span>
+                        </div>
+                    </div>
+                    <p class="event-description"><strong>This is the bucket-list event of the UK detecting calendar.</strong> Loud, lively, unforgettable. Big fields, buzzing campsites, and every detector brand under the sun. Trade stands, expert chats, and festival vibes!</p>
+                    <div class="event-tags">
+                        <span class="tag">🌟 Flagship Event</span>
+                        <span class="tag">Trade Stands</span>
+                        <span class="tag">Expert Talks</span>
+                        <span class="tag">Festival Atmosphere</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Somerset+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autumn Events -->
+            <div class="event-card" data-season="autumn">
+                <div class="event-header">
+                    <div class="event-season">🍂 Autumn Social Digs</div>
+                    <h3 class="event-title">Northumberland Dig</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>September 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Northumberland, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🍃</span>
+                            <span>Cooler days, clear land</span>
+                        </div>
+                    </div>
+                    <p class="event-description">A favourite time of year for many seasoned detectorists. Autumn rallies are calm, friendly and often very productive — a lovely way to wind the season down. Perfect for relaxed detecting with experienced rally goers.</p>
+                    <div class="event-tags">
+                        <span class="tag">Experienced Welcome</span>
+                        <span class="tag">Productive Fields</span>
+                        <span class="tag">Social Focus</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Northumberland+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card" data-season="autumn">
+                <div class="event-header">
+                    <div class="event-season">🍂 Autumn Social Digs</div>
+                    <h3 class="event-title">Wiltshire Harvest Rally</h3>
+                </div>
+                <div class="event-body">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span><strong>September 2026</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Wiltshire, England</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>Seasoned detectorists</span>
+                        </div>
+                    </div>
+                    <p class="event-description">End-of-season social rally with cooler temperatures and excellent detecting conditions. Great atmosphere with experienced detectorists sharing stories and techniques.</p>
+                    <div class="event-tags">
+                        <span class="tag">Season Finale</span>
+                        <span class="tag">Social</span>
+                        <span class="tag">Productive</span>
+                    </div>
+                    <div class="event-actions">
+                        <a href="https://www.google.com/maps/search/Wiltshire+UK" target="_blank" class="btn btn-primary">📍 View on Map</a>
+                        <a href="tel:01724845608" class="btn btn-secondary">📞 Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What You'll Find Section -->
+        <div class="info-section">
+            <h2 class="info-title">🔍 What You'll Find at a Rally</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Experience</h3>
+                    <ul>
+                        <li>New land to detect</li>
+                        <li>Real-world advice from experienced detectorists</li>
+                        <li>Real-world comparisons between machines</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Community</h3>
+                    <ul>
+                        <li>A proper sense of community</li>
+                        <li>Chats about machines, coils & settings</li>
+                        <li>Stories, laughs... and maybe history 🏺</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Learning</h3>
+                    <ul>
+                        <li>You don't need to be an expert</li>
+                        <li>You just need curiosity</li>
+                        <li>No pressure. No judgement</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: var(--text-secondary);">Just people who love the hobby ❤️</p>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h3 class="tips-title">🧭 A Few Handy Tips</h3>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <span class="tip-icon">📅</span>
+                    <p>Book early - popular rallies sell out</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">💧</span>
+                    <p>Take water, gloves & spare batteries</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">💬</span>
+                    <p>Ask questions (detectorists love helping!)</p>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-icon">🌤️</span>
+                    <p>Enjoy the quiet days too — that's detecting</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thinking About Your Detector Section -->
+        <div class="info-section" style="background: linear-gradient(135deg, #fff9e6 0%, #fff 100%); border: 2px solid var(--crawfords-blue);">
+            <h2 class="info-title">🧠 Thinking About Your Detector?</h2>
+            <p style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+                Rallies are the <strong>best place</strong> to see machines working in real UK soil. Many detectorists decide on their next upgrade after a rally conversation, not a spec sheet.
+            </p>
+            <p style="text-align: center; font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); max-width: 800px; margin: 1.5rem auto 0;">
+                This is where brands fade into the background and detecting takes centre stage. You'll see all makes working side-by-side, and that's exactly how it should be.
+            </p>
+            <p style="text-align: center; font-size: 1.2rem; font-weight: 600; color: var(--crawfords-blue); margin-top: 1.5rem;">
+                Different detectors. Same passion.
+            </p>
+        </div>
+    </div>
+
+    <!-- About Crawfords Section -->
+    <section class="about-crawfords">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>💬 About Crawfords Metal Detectors</h2>
+                <p>Metal detecting rallies aren't about guarantees — they're about <em>possibility</em>. Some days it's scrap. Some days it's silver. Every day, it's a community.</p>
+                <p>If you're heading to a rally in 2026 and want friendly, brand-neutral advice on machines, coils or accessories - we're always here for a chat, a brew, and a bit of honest guidance.</p>
+                <p><strong>Since 1989, we've been serving the metal detecting community with passion, expertise, and quality equipment.</strong> We support the entire detecting community — all brands, all levels, all enthusiasts.</p>
+                <div class="contact-info">
+                    <h3>📞 Get in Touch - CMD NORTH Headquarters</h3>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Scunthorpe, North Lincolnshire, UK</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>☎️</span>
+                        <span><strong>01724 845608</strong></span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>sales@crawfordsmd.com</span>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Open Monday - Saturday | Expert advice always available</p>
+                </div>
+                <p style="margin-top: 2rem; font-size: 1.1rem;"><em>See you in the field and happy hunting! 🪙🌾</em></p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37026.69837717846!2d-0.6709!3d53.5859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4878be0b22cd1c75%3A0x500f7fbb0f6bd30!2sScunthorpe%2C%20UK!5e0!3m2!1sen!2s!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>Crawfords Metal Detectors Ltd</strong> | Your trusted metal detecting experts since 1989</p>
+        <p>Copyright © 2026 Crawfords Metal Detectors. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Thanks to <strong>Paul Cee</strong>, Minelab Detexpert, for curating this 2026 rally calendar 🧡</p>
+    </footer>
+
+    <script>
+        function filterEvents(season) {
+            const cards = document.querySelectorAll('.event-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (season === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.season === season) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Check if no events are visible
+            const visibleCards = document.querySelectorAll('.event-card[style="display: block;"]');
+            const grid = document.getElementById('eventsGrid');
+            
+            if (visibleCards.length === 0) {
+                if (!document.querySelector('.no-events')) {
+                    const noEvents = document.createElement('div');
+                    noEvents.className = 'no-events';
+                    noEvents.textContent = 'No events found for this season. Check back later!';
+                    grid.appendChild(noEvents);
+                }
+            } else {
+                const noEvents = document.querySelector('.no-events');
+                if (noEvents) {
+                    noEvents.remove();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
