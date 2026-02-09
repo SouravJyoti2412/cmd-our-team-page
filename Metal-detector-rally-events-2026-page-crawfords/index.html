@@ -128,6 +128,51 @@
             </p>
         </div>
     </div>
+        <!-- Best Sellers Slider -->
+<!-- ================= BEST SELLERS ================= -->
+<!-- <section class="bestsellers">
+  <div class="container">
+    <h2 class="bestseller-title">🔥 Best Selling Detectors</h2>
+    <p class="bestseller-sub">Popular choices among rally detectorists</p>
+
+    <div class="slider-wrapper">
+
+      <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+
+      <div class="slider-viewport">
+        <div class="slider-track" id="productSlider"></div>
+      </div>
+
+      <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+
+    </div>
+  </div>
+</section> -->
+<section class="bestsellers">
+  <div class="container">
+    <h2 class="bestseller-title">Best Selling Detectors</h2>
+    <p class="bestseller-sub">Popular choices among rally detectorists</p>
+  </div>
+
+  <!-- NEW FULL WIDTH AREA -->
+  <div class="slider-fullwidth">
+    <div class="slider-wrapper">
+
+      <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
+
+      <div class="container">
+        <div class="slider-viewport">
+          <div class="slider-track" id="productSlider"></div>
+        </div>
+      </div>
+
+      <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
+
+    </div>
+  </div>
+</section>
+
+
 
     <!-- About Crawfords Section -->
     <section class="about-crawfords">
@@ -564,7 +609,196 @@
         function scrollToMain() {
             document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
         }
+        
     </script>
+<script>
+const productsData = [
+  {
+    "name": "Minelab Manticore",
+    "desc": "Top performance on UK soil",
+    "img": "m9-coil01-608x608.jpg",
+    "url": "https://crawfordsmd.com/minelab-manticore"
+  },
+  {
+    "name": "Equinox 900",
+    "desc": "Best all-round rally detector",
+    "img": "equinox-900offer-w-608x608.jpg",
+    "url": "https://crawfordsmd.com/minelab-equinox-900"
+  },
+  {
+    "name": "XP Deus II",
+    "desc": "Wireless & ultra lightweight",
+    "img": "deus-ii-pouch-608x608.jpg",
+    "url": "https://crawfordsmd.com/xp-deus2"
+  },
+  {
+    "name": "Vanquish 540 Pro",
+    "desc": "Perfect beginner rally machine",
+    "img": "vanquish-540_pro-608x608.jpg",
+    "url": "https://crawfordsmd.com/minelab-vanquish540-pro"
+  },
+  {
+    "name": "Vanquish 340",
+    "desc": "Simple & budget friendly starter detector",
+    "img": "v340-cover-608x608.jpg",
+    "url": "https://crawfordsmd.com/minelab-vanquish340"
+  },
+  {
+    "name": "Gold Monster 1000",
+    "desc": "Gold specialist",
+    "img": "goldmonster5-608x608.jpg",
+    "url": "https://crawfordsmd.com/minelab-goldmonster-5inch"
+  },
+  {
+    "name": "Nokta Legend",
+    "desc": "High performance multi-frequency detector",
+    "img": "the-legend-whp-608x608.jpg",
+    "url": "https://crawfordsmd.com/legend-whp"
+  }
+]
+
+</script>
+<script>
+const track = document.getElementById("productSlider");
+
+let index = 3;           // start from first real slide
+let cardCount = productsData.length;
+let visibleCards = 3;    // ALWAYS show 3 cards
+
+/* ---------------- BUILD SLIDER ---------------- */
+
+function createCard(p){
+  return `
+    <div class="product-card">
+        <img src="/assets/image/product-image/${p.img}">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <a href="${p.url}" target="_blank" class="btn btn-primary">View Product</a>
+    </div>`;
+}
+
+function buildSlider(){
+  track.innerHTML = "";
+
+  // clone LAST 3 cards to the beginning
+  const startClones = productsData.slice(-visibleCards);
+  startClones.forEach(p => track.innerHTML += createCard(p));
+
+  // real cards
+  productsData.forEach(p => track.innerHTML += createCard(p));
+
+  // clone FIRST 3 cards to the end
+  const endClones = productsData.slice(0, visibleCards);
+  endClones.forEach(p => track.innerHTML += createCard(p));
+
+  moveToIndex(); // position correctly
+}
+
+/* ---------------- SLIDE LOGIC ---------------- */
+
+function cardWidth(){
+  return document.querySelector(".product-card").offsetWidth + 24;
+}
+
+function moveToIndex(animate=true){
+  if(!animate) track.style.transition="none";
+  else track.style.transition="transform .6s ease";
+
+  track.style.transform = `translateX(-${index * cardWidth()}px)`;
+}
+
+/* arrow click */
+function moveSlide(direction){
+  index += direction;
+  moveToIndex(true);
+}
+
+/* infinite illusion */
+track.addEventListener("transitionend", () => {
+
+  // reached fake end → jump to real start
+  if(index >= cardCount + visibleCards){
+    index = visibleCards;
+    moveToIndex(false);
+  }
+
+  // reached fake start → jump to real end
+  if(index < visibleCards){
+    index = cardCount + visibleCards - 1;
+    moveToIndex(false);
+  }
+});
+
+/* ---------------- AUTO SLIDE ---------------- */
+
+let autoSlide = setInterval(()=> moveSlide(1),3000);
+
+document.querySelector(".slider-wrapper")
+  .addEventListener("mouseenter",()=>clearInterval(autoSlide));
+
+document.querySelector(".slider-wrapper")
+  .addEventListener("mouseleave",()=>autoSlide=setInterval(()=>moveSlide(1),3000));
+
+/* init */
+buildSlider();
+</script>
+<script>
+let isDragging = false;
+let startX;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID;
+
+/* mouse + touch events */
+const sliderWrapper = document.querySelector(".slider-wrapper");
+
+sliderWrapper.addEventListener("mousedown", dragStart);
+sliderWrapper.addEventListener("touchstart", dragStart);
+
+sliderWrapper.addEventListener("mouseup", dragEnd);
+sliderWrapper.addEventListener("mouseleave", dragEnd);
+sliderWrapper.addEventListener("touchend", dragEnd);
+
+sliderWrapper.addEventListener("mousemove", dragMove);
+sliderWrapper.addEventListener("touchmove", dragMove);
+
+/* start drag */
+function dragStart(e){
+  isDragging = true;
+  startX = getPositionX(e);
+  clearInterval(autoSlide); // pause auto slide
+}
+
+/* dragging */
+function dragMove(e){
+  if(!isDragging) return;
+
+  const currentPosition = getPositionX(e);
+  const diff = currentPosition - startX;
+
+  track.style.transition="none";
+  track.style.transform = `translateX(${ -index * cardWidth() + diff }px)`;
+}
+
+/* end drag */
+function dragEnd(e){
+  if(!isDragging) return;
+  isDragging = false;
+
+  const movedBy = getPositionX(e) - startX;
+
+  if(movedBy < -50) moveSlide(1);     // swipe left
+  else if(movedBy > 50) moveSlide(-1); // swipe right
+  else moveToIndex(true);
+
+  startAuto(); // resume auto slide
+}
+
+/* helper */
+function getPositionX(e){
+  return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+}
+</script>
 
 </body>
 
