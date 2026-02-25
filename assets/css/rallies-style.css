@@ -167,7 +167,7 @@ a{
 }
 
 /* Buttons */
-.btn{
+.btn-own{
   padding:12px 18px;
   border-radius:10px;
   font-weight:600;
@@ -176,11 +176,11 @@ a{
   width:100%;
   transition:.3s;
 }
-.btn-primary{
+.btn-main{
   background:var(--primary);
   color:white;
 }
-.btn-primary:hover{
+.btn-main:hover{
   background:var(--primary-dark);
 }
 

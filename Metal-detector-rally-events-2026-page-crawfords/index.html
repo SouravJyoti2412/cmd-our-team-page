@@ -150,7 +150,7 @@
             </p>
         </div>
         <div class="map-container">
-            <div id="map"></div>
+            <div id="map" style="z-index:2"></div>
         </div>
     </section>
     <!-- Main Content -->
@@ -640,7 +640,7 @@
                 <div>${tags}</div>
 
                 <div class="event-actions">
-                    <button class="btn btn-primary"onclick="openGoogleMaps('${event.location}')">
+                    <button class="btn-own btn-main"onclick="openGoogleMaps('${event.location}')">
                        📍 View on Map
                     </button>
 
@@ -660,7 +660,7 @@
             const buttons = document.querySelectorAll('.filter-btn');
 
             // Update active button
-            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(btn=> btn.classList.remove('active'));
             event.target.classList.add('active');
 
             // Filter cards
@@ -838,7 +838,7 @@ function createCard(p){
         <img src="/assets/image/product-image/${p.img}">
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <a href="${p.url}" target="_blank" class="btn btn-primary">View Product</a>
+        <a href="${p.url}" target="_blank" class="btn-own btn-main">View Product</a>
     </div>`;
 }
 
