@@ -154,7 +154,7 @@
         </div>
     </section>
     <!-- Main Content -->
-    <div class="container" id="mainContent">
+    <div class="craw-container" id="mainContent">
         <!-- Filter Tabs -->
         <div class="filter-tabs">
             <button class="filter-btn active" onclick="changeFilter(event,'all')">All Events</button>
@@ -248,7 +248,7 @@
     </div>
 <!-- Best Sellers Slider -->
 <section class="bestsellers">
-  <div class="container">
+    <div class="craw-container">
     <h2 class="bestseller-title">Best Selling Detectors</h2>
     <p class="bestseller-sub">Popular choices among rally detectorists</p>
   </div>
@@ -259,7 +259,7 @@
 
       <button class="slider-btn prev" onclick="moveSlide(-1)">❮</button>
 
-      <div class="container">
+    <div class="craw-container">
         <div class="slider-viewport">
           <div class="slider-track" id="productSlider"></div>
         </div>
@@ -640,7 +640,7 @@
                 <div>${tags}</div>
 
                 <div class="event-actions">
-                    <button class="btn-own btn-main"onclick="openGoogleMaps('${event.location}')">
+                    <button class="craw-btn craw-btn-main" onclick="openGoogleMaps('${event.location}')">
                        📍 View on Map
                     </button>
 
@@ -838,7 +838,7 @@ function createCard(p){
         <img src="/assets/image/product-image/${p.img}">
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <a href="${p.url}" target="_blank" class="btn-own btn-main">View Product</a>
+        <a href="${p.url}" target="_blank" class="craw-btn craw-btn-main">View Product</a>
     </div>`;
 }
 
